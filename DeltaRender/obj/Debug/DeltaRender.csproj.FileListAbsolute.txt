@@ -1,0 +1,9 @@
+C:\Users\Brandon\Source\Repos\DeltaRender\DeltaRender\bin\Debug\DeltaRender.exe
+C:\Users\Brandon\Source\Repos\DeltaRender\DeltaRender\bin\Debug\DeltaRender.pdb
+C:\Users\Brandon\Source\Repos\DeltaRender\DeltaRender\obj\Debug\DeltaRender.csprojAssemblyReference.cache
+C:\Users\Brandon\Source\Repos\DeltaRender\DeltaRender\obj\Debug\DeltaRender.Form1.resources
+C:\Users\Brandon\Source\Repos\DeltaRender\DeltaRender\obj\Debug\DeltaRender.Properties.Resources.resources
+C:\Users\Brandon\Source\Repos\DeltaRender\DeltaRender\obj\Debug\DeltaRender.csproj.GenerateResource.cache
+C:\Users\Brandon\Source\Repos\DeltaRender\DeltaRender\obj\Debug\DeltaRender.csproj.CoreCompileInputs.cache
+C:\Users\Brandon\Source\Repos\DeltaRender\DeltaRender\obj\Debug\DeltaRender.exe
+C:\Users\Brandon\Source\Repos\DeltaRender\DeltaRender\obj\Debug\DeltaRender.pdb
