@@ -27,6 +27,7 @@ namespace DeltaRender
             g = CreateGraphics();
             view = new Eye();
             Model torus = new Model("verty.obj");
+            torus.Extend(torus);
             Model cube = new Cube(0, 0, 4, 4).GenerateModel();
 
             view.LoadWorldObjects(

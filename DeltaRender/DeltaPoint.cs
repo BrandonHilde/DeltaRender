@@ -31,6 +31,14 @@ namespace XDelta
             }
         }
 
+        public DeltaPoint Copy()
+        {
+            double[] d = new double[dX.Length];
+            dX.CopyTo(d, 0);
+
+            return new DeltaPoint(d);
+        }
+
         /// <summary>
         /// Adds extra dimensions.
         /// </summary>

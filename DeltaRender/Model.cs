@@ -30,9 +30,9 @@ namespace XDelta
             List<DeltaPoint> verts = new List<DeltaPoint>();
             List<DeltaMesh> meshes = new List<DeltaMesh>();
 
-            for(int i = 0; i < dta.Length; i++)
+            for (int i = 0; i < dta.Length; i++)
             {
-                if(dta[i].Substring(0, 2) == "v ")
+                if (dta[i].Substring(0, 2) == "v ")
                 {
                     verts.Add(new DeltaPoint(dta[i].Substring(2)));
                 }
@@ -61,7 +61,7 @@ namespace XDelta
 
             char c = '/';
 
-            for(int x = 0; x < 3; x++)
+            for (int x = 0; x < 3; x++)
             {
                 i[x] = Convert.ToInt16(spl[x].Split(c)[0]);
             }
@@ -76,17 +76,20 @@ namespace XDelta
         /// <param name="extModel">The model to add to the current model.</param>
         public void Extend(Model extModel)
         {
-            DeltaMesh[] extMesh = extModel.GetAllMeshes();
+            DeltaMesh[] extMesh = extModel.CopyMeshes();
+            DeltaMesh[] nDM = this.CopyMeshes();
 
-            for(int i = 0; i < dm.Length; i++)
+            for (int i = 0; i < nDM.Length; i++)
             {
-                if(i < extMesh.Length)
+                if (i < extMesh.Length)
                 {
-                    dm[i].A.Extend(extMesh[i].A.dX);
-                    dm[i].B.Extend(extMesh[i].B.dX);
-                    dm[i].C.Extend(extMesh[i].C.dX);
+                    nDM[i].A.Extend(extMesh[i].A.dX);
+                    nDM[i].B.Extend(extMesh[i].B.dX);
+                    nDM[i].C.Extend(extMesh[i].C.dX);
                 }
             }
+
+            dm = nDM;
         }
 
         /// <summary>
@@ -108,7 +111,7 @@ namespace XDelta
             Random r = new Random();
             dm = new DeltaMesh[n];
 
-            for(int i = 0; i < dm.Length; i++)
+            for (int i = 0; i < dm.Length; i++)
             {
                 dm[i] = new DeltaMesh();
                 dm[i].SetRandom(r);
@@ -118,6 +121,18 @@ namespace XDelta
         public DeltaMesh[] GetAllMeshes()
         {
             return dm;
+        }
+
+        public DeltaMesh[] CopyMeshes()
+        {
+            DeltaMesh[] meshes = new DeltaMesh[dm.Length];
+
+            for (int i = 0; i < dm.Length; i++)
+            {
+                meshes[i] = dm[i].Copy();
+            }
+
+            return meshes;
         }
     }
 
@@ -132,6 +147,16 @@ namespace XDelta
             A = new DeltaPoint(); A.SetRandom(r);
             B = new DeltaPoint(); B.SetRandom(r);
             C = new DeltaPoint(); C.SetRandom(r);
+        }
+
+        public DeltaMesh Copy()
+        {
+            return new DeltaMesh
+            {
+                A = A.Copy(),
+                B = B.Copy(),
+                C = C.Copy()
+            };
         }
     }
 }
