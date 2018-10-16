@@ -28,6 +28,7 @@ namespace DeltaRender
             view = new Eye();
             Model torus = new Model("verty.obj");
             torus.Extend(torus);
+            torus.Extend(torus);
             Model cube = new Cube(0, 0, 4, 4).GenerateModel();
 
             view.LoadWorldObjects(
@@ -44,21 +45,10 @@ namespace DeltaRender
 
         }
 
-        public void BtcTrainingData()
-        {
-
-        }
-
         public void OpenEye()
         {
             back = view.GiveEyeGraphic(Size);
             g.DrawImage(back, Point.Empty);
-        }
-
-        public byte avPXL(byte r, byte g, byte b)
-        {
-            int av = (r + g + b) / 3;
-            return (byte)av;
         }
 
         double mov = 0.33;
